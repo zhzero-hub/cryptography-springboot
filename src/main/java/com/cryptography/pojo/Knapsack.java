@@ -12,6 +12,7 @@ public class Knapsack {
     private String publicKey;//公钥
     private BigInteger t , k;
     private String date;
+    private int n;//分组长度
 
     public Knapsack() {
 
@@ -24,6 +25,7 @@ public class Knapsack {
         t = knapsack.t;
         k = knapsack.k;
         date = knapsack.date;
+        n = knapsack.n;
     }
 
     public String getMessage() {
@@ -72,5 +74,13 @@ public class Knapsack {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getN() {
+        return n;
+    }
+
+    public void setN(int n) {
+        this.n = n;
     }
 }
