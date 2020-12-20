@@ -2,11 +2,13 @@ package com.cryptography.util;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Z_HAO 2020/12/19
  */
 public class MathService {
+    //bitCount不得小于7，否则无法进行编码
     public static final int bitCount = 10;
 
     /**
@@ -29,6 +31,18 @@ public class MathService {
             ret[i] = bitStr;
         }
         return ret;
+    }
+
+    //将二进制串转换为字符串
+    //x.length一定是bitCount的倍数
+    public static String toString(String x) {
+        int characters = x.length() / bitCount;
+        StringBuilder string = new StringBuilder();
+        for(int i = 0;i < characters;i ++) {
+            char character = (char)Integer.parseInt(x.substring(i * bitCount , (i + 1) * bitCount) , 2);
+            string.append(character);
+        }
+        return string.toString();
     }
 
     //将字符串类型的密钥转换为数组
