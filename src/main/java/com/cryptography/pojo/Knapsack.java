@@ -13,6 +13,7 @@ public class Knapsack {
     private BigInteger t , k;
     private String date;
     private int n;//分组长度
+    private String type;
 
     public Knapsack() {
 
@@ -82,5 +83,13 @@ public class Knapsack {
 
     public void setN(int n) {
         this.n = n;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Cryptor {
     public static ArrayList<BigInteger> generatePublicKey(Knapsack knapsack) {
-        if(!(knapsack.getPublicKey() == null)) {
+        if(knapsack.getPublicKey() != null && !knapsack.getPublicKey().isEmpty()) {
             return MathService.toKey(knapsack.getPublicKey());
         }
         ArrayList<BigInteger> privateKey = MathService.toKey(knapsack.getSecretKey());

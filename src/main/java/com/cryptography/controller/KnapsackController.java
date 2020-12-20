@@ -17,20 +17,20 @@ import java.util.List;
 /**
  * @author Z_HAO 2020/12/19
  */
-@Controller
 @CrossOrigin
+@RestController
 @RequestMapping("/api/knapsack")
-@MapperScan("com.cryptography")
 
 public class KnapsackController {
     @Autowired
-    KnapsackService knapsackService = new KnapsackServiceImpl();
+    KnapsackServiceImpl knapsackService = new KnapsackServiceImpl();
 
     @PostMapping("/encrypt")
     public ApiResult encrypt(@RequestBody Knapsack knapsack) {
+        knapsack.setType("加密");
         KnapsackResult knapsackResult = knapsackService.addByEncode(knapsack);
         if(knapsackResult != null) {
-            return ApiResultHandler.success(knapsack);
+            return ApiResultHandler.success(knapsackResult);
         }
         else {
             return ApiResultHandler.buildApiResult(200 , "加密失败" , null);
@@ -39,9 +39,10 @@ public class KnapsackController {
 
     @PostMapping("/decrypt")
     public ApiResult decrypt(@RequestBody Knapsack knapsack) {
+        knapsack.setType("解密");
         KnapsackResult knapsackResult = knapsackService.addByDecode(knapsack);
         if(knapsackResult != null) {
-            return ApiResultHandler.success(knapsack);
+            return ApiResultHandler.success(knapsackResult);
         }
         else {
             return ApiResultHandler.buildApiResult(200 , "加密失败" , null);

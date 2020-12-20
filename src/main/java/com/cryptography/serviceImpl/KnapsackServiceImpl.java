@@ -1,7 +1,6 @@
 package com.cryptography.serviceImpl;
 
 import com.cryptography.mapper.KnapsackMapper;
-import com.cryptography.pojo.Decryptor;
 import com.cryptography.pojo.Cryptor;
 import com.cryptography.pojo.Knapsack;
 import com.cryptography.pojo.KnapsackResult;
@@ -36,7 +35,7 @@ public class KnapsackServiceImpl implements KnapsackService {
     @Override
     public KnapsackResult addByDecode(Knapsack knapsack) {
         KnapsackResult knapsackResult = new KnapsackResult(knapsack);
-        knapsackResult.setDecodedMessage(Decryptor.knapsackDecrypt(knapsack));
+        knapsackResult.setDecodedMessage(Cryptor.knapsackDecrypt(knapsack));
         knapsackResult.setEncodedMessage(knapsack.getMessage());
         if(knapsackMapper.add(knapsackResult) != 0) {
             return knapsackResult;

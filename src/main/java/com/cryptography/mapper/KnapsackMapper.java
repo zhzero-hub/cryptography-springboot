@@ -22,8 +22,8 @@ public interface KnapsackMapper {
     public KnapsackResult findById(int id);
 
     @Options(useGeneratedKeys = true , keyProperty = "id")
-    @Insert("insert into knapsack(message , k , t , publicKey , secretKey , encodedMessage , decodedMessage , date)" +
-            "values(#{message} , #{k} , #{t} , #{publicKey} , #{secretKey} , #{encodedMessage} , #{decodedMessage} , #{date})")
+    @Insert("insert into knapsack(message , k , t , publicKey , secretKey , encodedMessage , decodedMessage , date , type)" +
+            "values(#{message} , #{k} , #{t} , #{publicKey} , #{secretKey} , #{encodedMessage} , #{decodedMessage} , #{date} , #{type})")
     public int add(KnapsackResult knapsackResult);
 
     @Delete("delete from knapsack where id = #{id}")
