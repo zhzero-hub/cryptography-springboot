@@ -27,7 +27,13 @@ public class Cryptor {
         return MathService.toKey(knapsack.getSecretKey());
     }
 
+    public static void generateKAndT(Knapsack knapsack) {
+        knapsack.setT(new BigInteger(knapsack.gettString()));
+        knapsack.setK(new BigInteger(knapsack.getkString()));
+    }
+
     public static String knapsackEncrypt(Knapsack knapsack) {
+        generateKAndT(knapsack);
         ArrayList<BigInteger> publicKey = generatePublicKey(knapsack);
 
         ArrayList<BigInteger> arrayList = new ArrayList<>();
@@ -62,6 +68,7 @@ public class Cryptor {
     }
 
     public static String knapsackDecrypt(Knapsack knapsack) {
+        generateKAndT(knapsack);
         ArrayList<BigInteger> secretKey = generateSecretKey(knapsack);
         StringBuilder decodedMessage = new StringBuilder();
 
@@ -81,6 +88,15 @@ public class Cryptor {
             decodedMessage.append(MathService.toString(x));
         }
         return decodedMessage.toString();
+    }
+
+    public static void setResult(KnapsackResult knapsackResult , Knapsack knapsack) {
+        knapsackResult.setDate(knapsack.getDate());
+        knapsackResult.setK(knapsack.getK());
+        knapsackResult.setT(knapsack.getT());
+        knapsackResult.setkString(knapsack.getK().toString());
+        knapsackResult.settString(knapsack.getT().toString());
+        knapsackResult.setPublicKey(knapsack.getPublicKey());
     }
 
     public static void main(String[] args) {

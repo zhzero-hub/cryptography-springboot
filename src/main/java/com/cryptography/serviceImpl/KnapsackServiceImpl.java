@@ -24,6 +24,8 @@ public class KnapsackServiceImpl implements KnapsackService {
         KnapsackResult knapsackResult = new KnapsackResult(knapsack);
         knapsackResult.setEncodedMessage(Cryptor.knapsackEncrypt(knapsack));
         knapsackResult.setDecodedMessage(knapsack.getMessage());
+        Cryptor.setResult(knapsackResult , knapsack);
+        System.out.println(knapsackResult.getDate());
         if(knapsackMapper.add(knapsackResult) != 0) {
             return knapsackResult;
         }
@@ -37,6 +39,7 @@ public class KnapsackServiceImpl implements KnapsackService {
         KnapsackResult knapsackResult = new KnapsackResult(knapsack);
         knapsackResult.setDecodedMessage(Cryptor.knapsackDecrypt(knapsack));
         knapsackResult.setEncodedMessage(knapsack.getMessage());
+        Cryptor.setResult(knapsackResult , knapsack);
         if(knapsackMapper.add(knapsackResult) != 0) {
             return knapsackResult;
         }
@@ -52,6 +55,7 @@ public class KnapsackServiceImpl implements KnapsackService {
 
     @Override
     public List<KnapsackResult> findByDate(String date) {
+        System.out.println(date);
         return knapsackMapper.findByDate(date);
     }
 

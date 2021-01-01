@@ -49,13 +49,13 @@ public class KnapsackController {
         }
     }
 
-    @GetMapping("/findHistorys/{date}")
-    public ApiResult findHistorys(@PathVariable String date) {
+    @GetMapping("/findHistorys/")
+    public ApiResult findHistorys(String date) {
         return ApiResultHandler.success(knapsackService.findByDate(date));
     }
 
-    @GetMapping("/findHistory/{id}")
-    public ApiResult findHistory(@PathVariable int id) {
+    @GetMapping("/findHistory/")
+    public ApiResult findHistory(int id) {
         return ApiResultHandler.success(knapsackService.findById(id));
     }
 }

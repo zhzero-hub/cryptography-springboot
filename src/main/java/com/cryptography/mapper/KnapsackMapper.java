@@ -15,15 +15,15 @@ import java.util.List;
 @Service
 
 public interface KnapsackMapper {
-    @Select("select * from knapsack where date = #{date}")
+    @Select.List(@Select("select * from knapsack where date = #{date}"))
     public List<KnapsackResult> findByDate(String date);
 
     @Select("select * from knapsack where id = #{id}")
     public KnapsackResult findById(int id);
 
     @Options(useGeneratedKeys = true , keyProperty = "id")
-    @Insert("insert into knapsack(message , k , t , publicKey , secretKey , encodedMessage , decodedMessage , date , type)" +
-            "values(#{message} , #{k} , #{t} , #{publicKey} , #{secretKey} , #{encodedMessage} , #{decodedMessage} , #{date} , #{type})")
+    @Insert("insert into knapsack(message , kString , tString , publicKey , secretKey , encodedMessage , decodedMessage , date , type)" +
+            "values(#{message} , #{kString} , #{tString} , #{publicKey} , #{secretKey} , #{encodedMessage} , #{decodedMessage} , #{date} , #{type})")
     public int add(KnapsackResult knapsackResult);
 
     @Delete("delete from knapsack where id = #{id}")

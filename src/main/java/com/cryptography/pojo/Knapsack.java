@@ -14,6 +14,8 @@ public class Knapsack {
     private String date;
     private int n;//分组长度
     private String type;
+    private String tString;
+    private String kString;
 
     public Knapsack() {
 
@@ -91,5 +93,21 @@ public class Knapsack {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String gettString() {
+        return tString;
+    }
+
+    public void settString(String tString) {
+        this.tString = tString;
+    }
+
+    public String getkString() {
+        return kString;
+    }
+
+    public void setkString(String kString) {
+        this.kString = kString;
     }
 }
