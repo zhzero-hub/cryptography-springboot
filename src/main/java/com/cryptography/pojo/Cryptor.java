@@ -97,6 +97,9 @@ public class Cryptor {
         knapsackResult.setkString(knapsack.getK().toString());
         knapsackResult.settString(knapsack.getT().toString());
         knapsackResult.setPublicKey(knapsack.getPublicKey());
+        knapsackResult.setN(knapsack.getN());
+        knapsackResult.setBitCount(MathService.bitCount);
+        knapsackResult.setType(knapsack.getType());
     }
 
     public static void main(String[] args) {

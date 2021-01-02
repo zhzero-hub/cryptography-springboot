@@ -18,4 +18,6 @@ public interface KnapsackService {
     public List<KnapsackResult> findByDate(String date);
 
     public KnapsackResult findById(int id);
+
+    public List<KnapsackResult> findAllByDate();
 }

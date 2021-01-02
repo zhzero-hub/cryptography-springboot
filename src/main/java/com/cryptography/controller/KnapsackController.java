@@ -27,7 +27,7 @@ public class KnapsackController {
 
     @PostMapping("/encrypt")
     public ApiResult encrypt(@RequestBody Knapsack knapsack) {
-        knapsack.setType("加密");
+        //knapsack.setType("加密");
         KnapsackResult knapsackResult = knapsackService.addByEncode(knapsack);
         if(knapsackResult != null) {
             return ApiResultHandler.success(knapsackResult);
@@ -39,7 +39,7 @@ public class KnapsackController {
 
     @PostMapping("/decrypt")
     public ApiResult decrypt(@RequestBody Knapsack knapsack) {
-        knapsack.setType("解密");
+        //knapsack.setType("解密");
         KnapsackResult knapsackResult = knapsackService.addByDecode(knapsack);
         if(knapsackResult != null) {
             return ApiResultHandler.success(knapsackResult);
@@ -57,6 +57,11 @@ public class KnapsackController {
     @GetMapping("/findHistory/")
     public ApiResult findHistory(int id) {
         return ApiResultHandler.success(knapsackService.findById(id));
+    }
+
+    @GetMapping("/findAllHistorys")
+    public ApiResult findAllHistorys() {
+        return ApiResultHandler.success(knapsackService.findAllByDate());
     }
 }
 

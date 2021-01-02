@@ -63,4 +63,9 @@ public class KnapsackServiceImpl implements KnapsackService {
     public KnapsackResult findById(int id) {
         return knapsackMapper.findById(id);
     }
+
+    @Override
+    public List<KnapsackResult> findAllByDate() {
+        return knapsackMapper.findAllByDate();
+    }
 }

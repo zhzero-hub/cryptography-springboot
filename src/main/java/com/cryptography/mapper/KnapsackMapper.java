@@ -22,11 +22,14 @@ public interface KnapsackMapper {
     public KnapsackResult findById(int id);
 
     @Options(useGeneratedKeys = true , keyProperty = "id")
-    @Insert("insert into knapsack(message , kString , tString , publicKey , secretKey , encodedMessage , decodedMessage , date , type)" +
-            "values(#{message} , #{kString} , #{tString} , #{publicKey} , #{secretKey} , #{encodedMessage} , #{decodedMessage} , #{date} , #{type})")
+    @Insert("insert into knapsack(message , kString , tString , publicKey , secretKey , encodedMessage , decodedMessage , date , type , n , bitCount)" +
+            "values(#{message} , #{kString} , #{tString} , #{publicKey} , #{secretKey} , #{encodedMessage} , #{decodedMessage} , #{date} , #{type} , #{n} , #{bitCount})")
     public int add(KnapsackResult knapsackResult);
 
     @Delete("delete from knapsack where id = #{id}")
     public int delete(int id);
+
+    @Select.List(@Select("select * from knapsack order by date, id"))
+    public List<KnapsackResult> findAllByDate();
 
 }

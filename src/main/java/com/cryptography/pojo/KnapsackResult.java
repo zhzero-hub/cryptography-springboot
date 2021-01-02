@@ -8,6 +8,13 @@ public class KnapsackResult extends Knapsack {
     private String encodedMessage;
     private String decodedMessage;
 
+    private int n;
+    private int bitCount;
+
+    public KnapsackResult() {
+        super();
+    }
+
     public KnapsackResult(Knapsack knapsack) {
         super(knapsack);
     }
@@ -34,5 +41,23 @@ public class KnapsackResult extends Knapsack {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public int getN() {
+        return n;
+    }
+
+    @Override
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    public int getBitCount() {
+        return bitCount;
+    }
+
+    public void setBitCount(int bitCount) {
+        this.bitCount = bitCount;
     }
 }
